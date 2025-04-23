@@ -2,12 +2,12 @@
 
 #include <util/delay.h> // include the delay library
 
-#define F_CPU  8000000UL; // set the frequency of your clk arduino already have 16mhz frequency so use of it , just for knowledge purpose
+#define F_CPU  8000000UL; // set the frequency of your clk arduino already have 16mhz frequency so no use of it , just for knowledge purpose
 
 // here the macros is use to make the blink code more easier so that we does not always require to set and clear the bit
 
-#define SET_BIT(PORT , BIT) ((PORT) |= (1<< (BIT)));  //SET THE CONDITION FOR LED HIGH         
-#define CLEAR_BIT(PORT , BIT) ((PORT) &= ~(1<< (BIT))); //SET THE CONDITION FOR LED LOW
+#define SET_BIT(PORT , BIT) ((PORT) |= (1<< (BIT)));  //SET THE CONDITION FOR LED HIGH, here we have define for set bit that is when the switch is low the led will blink that means our output port PB3 will set to 1
+#define CLEAR_BIT(PORT , BIT) ((PORT) &= ~(1<< (BIT))); //SET THE CONDITION FOR LED LOW, these is inverse o fhigh when switch is high the led is off 
 
 int main (void){
 
@@ -17,10 +17,12 @@ int main (void){
 
   int pin_status;         // MAKING PIN STATUS TO MAKE LED ON AND OFF
   while(1){
-    pin_status = PORTB & (1<<2);
+    pin_status = PORTB & (1<<2); // here we set pin status set to 1 (then what is 2 it is the port i.e is PB2) we are applying condition for switch 
+                                // that is when switch is high the led is off and switch is low the led is on
+                        
     if(pin_status){
 
-       SET_BIT(PORTB , 3);
+       SET_BIT(PORTB , 3);  
 
     }
     else{

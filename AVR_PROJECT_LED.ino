@@ -22,12 +22,12 @@ int main (void){
                         
     if(pin_status){
 
-       SET_BIT(PORTB , 3);  
+       CLEAR_BIT(PORTB , 3);  // SWITCH IS HIGH SO LED IS OFF
 
     }
     else{
 
-        CLEAR_BIT(PORTB , 3);
+        SET_BIT(PORTB , 3); // WHEN SWITCH IS PRESSED THE LED WILL BECOME HIGH
     }
    }
   return 0;

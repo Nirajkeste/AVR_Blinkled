@@ -32,3 +32,4 @@ int main (void){
    }
   return 0;
 }
+// this above is the code for the avr programming of basic led turn off and on . THIS CAN BE PERFORM IN ARDUINO AND ATMEGA 328P CHIP//
